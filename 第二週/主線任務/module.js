@@ -5,18 +5,8 @@ var obj={
     },
     getData(){
         var vm=this;
-        var url=`https://course-ec-api.hexschool.io/api/${vm.data.UUID}/admin/ec/products`;
-        axios(
-            {
-                method:'get',
-                url:url,
-                headers:{
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Authorization": "Bearer gwx9bAecG4RgQQkOkBr8cKws6kCU6ibvbDmi8scZ8kA9uA540AamI9ITwfxz",
-                }
-            }
-        )
+        var url=`https://course-ec-api.hexschool.io/api/${vm.data.UUID}/ec/products`;
+        axios.get(url)
         .then(function(res){
             vm.data.products = res.data.data;
             vm.render();
